@@ -1,17 +1,25 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Mi Blog</title>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </head>
 <body>
-    <h1>Lista de Entradas del Blog</h1>
+    <header class="page-header">
+        <h1><a href="/">Lista de Entradas del Blog</a></h1>
+    </header>
 
-    {% for post in posts %}
-        <div>
-            <h2><a href="">{{ post.title }}</a></h2> 
-            <p>Publicado: {{ post.published_date }}</p>
-            <p>{{ post.text|linebreaksbr }}</p>
-        </div>
-        <hr> {% endfor %}
+    <main class="content">
+        {% for post in posts %}
+            <div class="post">
+                <p class="post-date">Publicado: {{ post.published_date }}</p>
+                <h2><a href="">{{ post.title }}</a></h2> 
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+            <hr> 
+        {% endfor %}
+    </main>
 </body>
 </html>
