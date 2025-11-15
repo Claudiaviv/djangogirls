@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Blog</title>
+</head>
+<body>
+    <h1>Lista de Entradas del Blog</h1>
+
+    {% for post in posts %}
+        <div>
+            <h2><a href="">{{ post.title }}</a></h2> 
+            <p>Publicado: {{ post.published_date }}</p>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+        <hr> {% endfor %}
+</body>
+</html>
